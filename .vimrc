@@ -120,8 +120,8 @@ execute pathogen#infect()
 filetype plugin indent on " required by Pathogen Plugin Manager
 
 " Theme
-set background=light
-colorscheme Tomorrow-Night
+" set background=light
+" colorscheme Tomorrow-Night
 
 " CtrlP
 map <leader>t <C-p>

@@ -14,3 +14,9 @@ To install, just make sure the `install.sh` file is executable
 (`chmod +x ./install.sh`)
 then run it: `./install.sh`. It's pretty rough, so you'll definitely want
 to read through the script before you execute. It'll wipe out existing files.
+
+In order to get the git stuff to work, you'll need to add this to your 
+.gitconfig:
+
+        [include]
+            path = /path/to/file

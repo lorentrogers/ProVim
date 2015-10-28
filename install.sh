@@ -19,6 +19,7 @@ install(){
     ln -fs ~/dev/dotfiles/.tmux.conf ~/.tmux.conf; echo "."
     ln -fs ~/dev/dotfiles/.vimrc ~/.vimrc; echo "."
     ln -fs ~/dev/dotfiles/.zshrc ~/.zshrc; echo "."
+    ln -fs ~/dev/dotfiles/.gitoptions ~/.gitoptions; echo "."
 }
 
 while true; do
@@ -30,3 +31,5 @@ while true; do
         * ) echo "Please answer yes or no.";;
     esac
 done
+
+

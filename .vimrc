@@ -168,8 +168,8 @@ let g:gitgutter_eager = 0
 let g:gitgutter_sign_column_always = 1
 highlight clear SignColumn
 
-" Searching the file system
-map <leader>' :NERDTreeToggle<cr>
+" NERDTree
+map <C-n> :NERDTreeToggle<cr>
 
 " Tabularize
 map <Leader>e :Tabularize /=<cr>

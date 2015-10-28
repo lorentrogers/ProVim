@@ -226,8 +226,10 @@ map <leader>w[ <C-W>= " equalize all windows
 " Same with mapping <C-W>|
 
 " Make splitting Vim windows easier
-map <leader>; <C-W>s
-map <leader>` <C-W>v
+" map <leader>; <C-W>s
+" map <leader>` <C-W>v
+nnoremap <silent> vv <C-w>v
+nnoremap <silent> ss <C-w>s
 
 " Running Tests...
 " See also <https://gist.github.com/8114940>

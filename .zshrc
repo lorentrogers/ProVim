@@ -12,6 +12,11 @@ export LS_COLORS=Gxfxcxdxbxegedabagacad
 # }}}
 
 # Ruby {{{
+
+# RVM
+source ~/.rvm/scripts/rvm
+
+# Print ruby version
 function get_ruby_version() {
   ruby -v | awk '{print $1 " " $2}'
 }

@@ -19,4 +19,4 @@ In order to get the git stuff to work, you'll need to add this to your
 .gitconfig:
 
         [include]
-            path = /path/to/file
+            path = ~/.gitoptions

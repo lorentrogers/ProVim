@@ -21,4 +21,8 @@ In order to get the git stuff to work, you'll need to add this to your
         [include]
             path = ~/.gitoptions
 
+Since this repo uses submodules for the plugins, you'll probably want to 
+update those periodically.
+
+        git submodule update
 

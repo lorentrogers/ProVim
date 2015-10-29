@@ -20,3 +20,5 @@ In order to get the git stuff to work, you'll need to add this to your
 
         [include]
             path = ~/.gitoptions
+
+

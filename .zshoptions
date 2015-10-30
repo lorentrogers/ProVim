@@ -1,5 +1,4 @@
 # Exports {{{
-export GITHUB_USER='your-username'
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin # Reorder PATH so local bin is first
 export GREP_OPTIONS='--color=auto'
 export GREP_COLOR='1;32'

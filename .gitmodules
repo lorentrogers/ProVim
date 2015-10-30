@@ -43,3 +43,9 @@
 [submodule ".vim/bundle/vim-localrc"]
 	path = .vim/bundle/vim-localrc
 	url = https://github.com/thinca/vim-localrc
+[submodule ".vim/bundle/vim-polyglot"]
+	path = .vim/bundle/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot/
+[submodule ".vim/bundle/vim-markdown"]
+	path = .vim/bundle/vim-markdown
+	url = https://github.com/tpope/vim-markdown

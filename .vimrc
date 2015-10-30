@@ -119,6 +119,8 @@ set colorcolumn=80
 execute pathogen#infect()
 filetype plugin indent on " required by Pathogen Plugin Manager
 
+execut
+
 " Theme
 " set background=light
 " colorscheme Tomorrow-Night

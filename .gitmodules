@@ -58,3 +58,6 @@
 [submodule ".vim/bundle/todo.txt-vim"]
 	path = .vim/bundle/todo.txt-vim
 	url = git://github.com/freitass/todo.txt-vim.git
+[submodule ".vim/bundle/vim-unimpaired"]
+	path = .vim/bundle/vim-unimpaired
+	url = https://github.com/tpope/vim-unimpaired

@@ -2,6 +2,9 @@
 " Switch syntax highlighting on, when the terminal has colors
 syntax on
 
+" Turn on spellcheck
+set spell
+
 " Use vim, not vi api
 set nocompatible
 

@@ -57,7 +57,7 @@
     mc = merge --continue
     ms = merge --skip
     #############
-    o = checkout
+    co = checkout
     ob = checkout -b
     #############
     pr = prune -v

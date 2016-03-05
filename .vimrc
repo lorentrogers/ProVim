@@ -1,9 +1,10 @@
 " Settings {{{
+
 " Switch syntax highlighting on, when the terminal has colors
 syntax on
 
 " Turn on spellcheck
-set spell
+" set spell
 
 " Use vim, not vi api
 set nocompatible
@@ -172,6 +173,9 @@ let g:gitgutter_enabled = 1
 let g:gitgutter_eager = 0
 let g:gitgutter_sign_column_always = 1
 highlight clear SignColumn
+
+" TagList
+map <Leader>n :TlistToggle<cr>
 
 " NERDTree
 map <C-n> :NERDTreeToggle<cr>

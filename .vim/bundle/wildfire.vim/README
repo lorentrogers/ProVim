@@ -1,0 +1,18 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=4868
+
+
++] Intro
+
+With Wildfire you can quickly select the closest text object among a group of candidates.
+ By default candidates are "i'", 'i"', "i)", "i]", "i}", "ip" and "it".
+
++] Usage
+
+Press <ENTER> in normal mode to select the closest text object. Keep pressing <ENTER> 
+for selecting the next closest text object. To go the other way round, that is, to select the previously 
+selected text object, press <BS>.
+
+To speed things up, if you want to select the nth closest text object you can press a number followed 
+by <ENTER> (e.g. pressing 2<ENTER> will select the second closest text object).
+
+More at https://github.com/gcmt/wildfire.vim

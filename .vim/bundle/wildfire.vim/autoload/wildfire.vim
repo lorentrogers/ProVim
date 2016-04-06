@@ -11,36 +11,15 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 
-" Settings
-" =============================================================================
-
-let g:wildfire_objects =
-    \ get(g:, "wildfire_objects", ["ip", "i)", "i]", "i}", "i'", 'i"', "it"])
-
-" force `g:wildfire_objects` to be a dictionary
-let s:wildfire_objects = type(g:wildfire_objects) == type([]) ?
-      \ {"*": g:wildfire_objects} : g:wildfire_objects
-
-" split filetypes that share the same text objects
-for [ftypes, objects] in items(s:wildfire_objects)
-    for ft in split(ftypes, ",")
-        let s:wildfire_objects[ft] = objects
-    endfor
-endfor
-
-
 " Internal variables
 " =============================================================================
 
-let s:objects = [
-    \ "(", ")", "{", "}","[", "]", "<", ">", "b", "B",
-    \ "'", '"', "`", "t", "w", "W", "p", "s"]
+let s:cannot_be_nested = {"iw" : 1, "aw" : 1, "iW" : 1, "aW": 1}
 
-let s:vim_objects = {}
-for kind in s:objects
-    let s:vim_objects = extend(s:vim_objects, {"a".kind : 1, "i".kind : 1})
+let s:vim_text_objects = {}
+for char in split("(){}[]<>'`\"bBwWpst", "\\zs")
+    let s:vim_text_objects = extend(s:vim_text_objects, {"a".char : 1, "i".char : 1})
 endfor
-unlet s:objects
 
 let s:counts = {}
 let s:selections_history = []
@@ -50,11 +29,25 @@ let s:origin = []
 " Functions
 " =============================================================================
 
+fu! s:load_objects()
+    " force `g:wildfire_objects` to be a dictionary
+    let wildfire_objects = type(g:wildfire_objects) == type([]) ?
+        \ {"*": g:wildfire_objects} : copy(g:wildfire_objects)
+    " split filetypes that share the same text objects
+    for [ftypes, objects] in items(wildfire_objects)
+        for ft in split(ftypes, ",")
+            let wildfire_objects[ft] = objects
+        endfor
+    endfor
+    return wildfire_objects
+endfu
+
 fu! s:Init()
     let s:origin = getpos(".")
     let s:selections_history = []
     let s:counts = {}
-    for object in get(s:wildfire_objects, &ft, get(s:wildfire_objects, "*", []))
+    let wildfire_objects = s:load_objects()
+    for object in get(wildfire_objects, &ft, get(wildfire_objects, "*", []))
         let s:counts[object] = 1
     endfor
 endfu
@@ -100,6 +93,11 @@ fu! wildfire#_fuel()
             \ "endline": endline, "endcol": endcol })
 
         cal winrestview(winview)
+
+        " Some text object cannot be nested. This avoids unwanted behavior.
+        if get(s:cannot_be_nested, to.object) && to.count > 1
+            continue
+        endif
 
         " The selection failed with the candidate text object
         if to.startline == to.endline && to.startcol == to.endcol
@@ -178,7 +176,7 @@ endfu
 " To select a text object
 fu! s:Select(to)
     exe "sil! norm! \<ESC>v\<ESC>v"
-    if get(s:vim_objects, a:to.object)
+    if get(s:vim_text_objects, a:to.object)
         " use counts when selecting vim text objects
         exe "sil! norm! " . a:to.count . a:to.object
     else

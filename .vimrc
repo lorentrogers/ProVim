@@ -289,6 +289,21 @@ let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 " turn on spell check for specific file types
 autocmd FileType latex,tex,md,markdown setlocal spell
 
+" Highlight words to avoid in tech writing
+" http://css-tricks.com/words-avoid-educational-writing/
+highlight WordsToAvoid ctermbg=red ctermfg=white
+syntax match WordsToAvoid /\cobviously\|basically\|simply\|of\scourse\|clearly\|just\|everyone\sknows\|however\|so,\|easy/
+" match WordsToAvoid /\cobviously\|basically\|simply\|of\scourse\|clearly\|just\|everyone\sknows\|however\|so,\|easy/
+" autocmd BufWinEnter * match WordsToAvoid /\cobviously\|basically\|simply\|of\scourse\|clearly\|just\|everyone\sknows\|however,\|so,\|easy/
+" autocmd InsertEnter * match WordsToAvoid /\cobviously\|basically\|simply\|of\scourse\|clearly\|just\|everyone\sknows\|however,\|so,\|easy/
+" autocmd InsertLeave * match WordsToAvoid /\cobviously\|basically\|simply\|of\scourse\|clearly\|just\|everyone\sknows\|however,\|so,\|easy/
+" autocmd BufWinLeave * call clearmatches()
+
+" Ableist words to avoid
+" http://www.autistichoya.com/p/ableist-words-and-terms-to-avoid.html
+highlight AbleistWordsToAvoid ctermbg=red ctermfg=white
+syntax match AbleistWordsToAvoid /\cbarren\|blind\sto\|blind\seye\sto\|blinded\sby\|bound\sto\sa\swheelchair\|wheelchair\sbound\|confined\sto\sa\swheelchair\|crazy\|cretin\|cripplecrippled\|daft\|deaf-mute\|deaf\sto\|deaf\sear\sto\|derp\|herp-derp\|diffability\|differently\sabled\|dumb\|feeble-minded\|handicap\|handicapped\|handicapable\|harelip\|hearing-impaired\|idiot\|idiotic\|imbecile\|insane\|insanity\|invalid\|lame\|loony\|lunatic\|madhouse\|mad\|madman\|manic\|maniac\|mental\|mental\scase\|mental\sdefective\|mongoloid\|moron\|moronic\|nuts\|psycho\|psychopath\|psychopathic\|psycho\|psychotic\|retard\|retarded\|.*tard\|short-bus\|short-bus\|simpleton\|spaz\|spazzed\|specially\sabled\|special\sneeds\|stupid\|suffers\sfrom\|wacko\|whacko/
+
 " jump to last cursor
 autocmd BufReadPost *
   \ if line("'\"") > 0 && line("'\"") <= line("$") |
